@@ -4,7 +4,7 @@ This is a PyTorch implementation for **MonoPCC: Photometric-invariant Cycle Cons
 
 ## ⚙️ Setup
 
-Our experiments are conducted in a [conda](https://www.anaconda.com/download) environment and you can use the below commands to install necessary dependencies:
+Our experiments are conducted in a [conda](https://www.anaconda.com/download) environment (python 3.7 is recommended) and you can use the below commands to install necessary dependencies:
 ```shell
 pip3 install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0
 pip install dominate==2.4.0 Pillow==6.1.0 visdom==0.1.8
@@ -25,7 +25,7 @@ The train/test split for SCARED in our works is defined in the `splits/endovis` 
 
 ## 📊 Evaluation
 
-To prepare the ground truth depth maps, please follow the [AF-SfMLearner](https://github.com/ShuweiShao/AF-SfMLearner/blob/main/export_gt_depth.py). For convenience, here we provide the [model files](https://drive.google.com/drive/folders/13A9TZDETPgEm3D-c37YsGHn8OZcd-VMh?usp=sharing) to reproduce the reported results.
+To prepare the ground truth depth maps, please follow the [AF-SfMLearner](https://github.com/ShuweiShao/AF-SfMLearner/blob/main/export_gt_depth.py). Moreover, here we provide the [model files](https://drive.google.com/drive/folders/13A9TZDETPgEm3D-c37YsGHn8OZcd-VMh?usp=sharing) to reproduce the reported results.
 
 To evaluate model performance on SCARED, you need to run the following command: 
 ```shell
@@ -33,7 +33,7 @@ CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --data_path <your_data_path> --l
     --eval_split endovis --dataset endovis  --max_depth 150 --png --eval_mono
 ```
 
-## Demo of 3D reconstruction
+## 🎞️ Demo of 3D reconstruction
 
 Here we use MonoPCC to estimate depth maps for a video sequence in SCARED, and then perform 3D reconstruction ([ElasticFusion](https://github.com/mp3guy/ElasticFusion)) with the RGB and pseudo depth data:
 ![image](assets/fusion.gif)
