@@ -81,9 +81,7 @@ def evaluate(opt):
 
         encoder_dict = torch.load(encoder_path)
 
-        datasets_dict = {"endovis": datasets.SCAREDRAWDataset,
-                         "simcol": datasets.SimcolRAWDataset,
-                         "servct": datasets.SERVCTRAWDataset}
+        datasets_dict = {"endovis": datasets.SCAREDRAWDataset}
         dataset = datasets_dict[opt.dataset](opt.data_path, filenames,
                                         encoder_dict['height'], encoder_dict['width'],
                                         [0], 4, is_train=False)
