@@ -34,7 +34,7 @@ class MonodepthOptions:
         self.parser.add_argument("--split",
                                  type=str,
                                  help="which training split to use",
-                                 choices=["endovis", "servct", "simcol"],
+                                 choices=["endovis", "servct", "simcol", "eigen_zhou"],
                                  default="endovis")
         self.parser.add_argument("--num_layers",
                                  type=int,
@@ -45,7 +45,7 @@ class MonodepthOptions:
                                  type=str,
                                  help="dataset to train on",
                                  default="endovis",
-                                 choices=["endovis", "servct", "simcol"])
+                                 choices=["endovis", "servct", "simcol", "kitti"])
         self.parser.add_argument("--png",
                                  help="if set, trains from raw KITTI png files (instead of jpgs)",
                                  action="store_true")
@@ -182,7 +182,7 @@ class MonodepthOptions:
         self.parser.add_argument("--eval_split",
                                  type=str,
                                  default="endovis",
-                                 choices=["endovis", "servct", "simcol"],
+                                 choices=["endovis", "servct", "simcol", "eigen"],
                                  help="which split to run eval on")
         self.parser.add_argument("--save_pred_disps",
                                  help="if set saves predicted disparities",

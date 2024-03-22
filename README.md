@@ -42,7 +42,7 @@ Here we use MonoPCC to estimate depth maps for a video sequence in SCARED, and t
 
 ## 🚗 Results of KITTI
 
-To further demonstrate the effectiveness of MonoPCC in more general scenarios, we conduct comparison experiment on [KITTI](http://www.cvlibs.net/datasets/kitti/raw_data.php) dataset. Here we exhibit SOTAs mentioned in our paper, and provide the [depth models]() to validate the below experimental results. 
+To further demonstrate the effectiveness of MonoPCC in more general scenarios, we conduct comparison experiment on [KITTI](http://www.cvlibs.net/datasets/kitti/raw_data.php) dataset. Here we exhibit SOTAs mentioned in our paper, and provide the [depth models](https://drive.google.com/drive/folders/1fgYf8q-9vnyrpAsUjsKlSYrWpwW0jpYH?usp=sharing) to validate the below experimental results. 
 
 | `Methods`          | Abs Rel| Sq Rel| RMSE| RMSE log|  $\delta$ < 1.25  |
 |-----------------------|----|----|----|------|--------|
@@ -54,6 +54,11 @@ To further demonstrate the effectiveness of MonoPCC in more general scenarios, w
 | [`Lite-Mono`](https://github.com/noahzn/Lite-Mono)         | 0.101 |0.729| 4.454| 0.178| 0.897|
 | `MonoPCC(Ours)`         | **0.098** |**0.677**| **4.318**| **0.173**| **0.900**|
 
+To be specific, please run the following command:
+```shell
+CUDA_VISIBLE_DEVICES=0 python evaluate_depth_kitti.py --data_path <kitti_data_path> --load_weights_folder <your_weight_path> \
+    --eval_split eigen --dataset kitti --eval_mono
+```
 
 ## ⏳ To do
 
