@@ -50,9 +50,9 @@ To further demonstrate the effectiveness of MonoPCC in more general scenarios, w
 | [`FeatDepth`](https://github.com/sconlyshootery/FeatDepth)   | 0.104| 0.729| 4.481| 0.179| 0.893|
 | [`HR-Depth`](https://github.com/shawLyu/HR-Depth)         | 0.109|  0.792|  4.632|  0.185|  0.884|
 | [`DIFFNet`](https://github.com/brandleyzhou/DIFFNet)  | 0.102 |0.749 |4.445 |0.179 |0.897 |
-| [`MonoViT`](https://github.com/zxcqlf/monovit)         | 0.099 |0.708 |4.372| 0.175 |0.900 |
+| [`MonoViT`](https://github.com/zxcqlf/monovit)         | 0.099 |0.708 |4.372| 0.175 |**0.900** |
 | [`Lite-Mono`](https://github.com/noahzn/Lite-Mono)         | 0.101 |0.729| 4.454| 0.178| 0.897|
-| `MonoPCC(Ours)`         | 0.098 |0.677| 4.318| 0.173| 0.900|
+| `MonoPCC(Ours)`         | **0.098** |**0.677**| **4.318**| **0.173**| **0.900**|
 
 
 ## ⏳ To do
