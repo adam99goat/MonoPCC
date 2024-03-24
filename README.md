@@ -44,7 +44,7 @@ Here we use MonoPCC to estimate depth maps for a video sequence in SCARED, and t
 
 To further demonstrate the effectiveness of MonoPCC in more general scenarios, we conduct comparison experiment on [KITTI](http://www.cvlibs.net/datasets/kitti/raw_data.php) dataset. Here we exhibit SOTAs mentioned in our paper, and provide the [depth models](https://drive.google.com/drive/folders/1fgYf8q-9vnyrpAsUjsKlSYrWpwW0jpYH?usp=sharing) to validate the below experimental results. 
 
-| `Methods`          | Abs Rel $\downarrow$| Sq Rel $\downarrow$| RMSE $\downarrow$| RMSE log $\downarrow$|  $\delta$ < 1.25 $\uparrow$ |
+| `Methods`          | Abs Rel| Sq Rel| RMSE| RMSE log|  $\delta$ < 1.25  |
 |-----------------------|----|----|----|------|--------|
 | [`Monodepth2`](https://github.com/nianticlabs/monodepth2)          | 0.115 |0.903 |4.863| 0.193 |0.877 |
 | [`FeatDepth`](https://github.com/sconlyshootery/FeatDepth)   | 0.104| 0.729| 4.481| 0.179| 0.893|
@@ -64,7 +64,7 @@ CUDA_VISIBLE_DEVICES=0 python evaluate_depth_kitti.py --data_path <kitti_data_pa
 
 Besides endoscopic scenarios, brightness inconsistency can also occur in some special cases, e.g., nighttime streets with moving vehicles. Thus, we also evaluate our model on a challenging dataset, i.e., [RobotCar-Night](https://robotcar-dataset.robots.ox.ac.uk/). Based a recent SOTA [RNW](https://github.com/w2kun/RNW), we consier our MonoPCC as a plug-and-play component and insert it into RNW to replace the original *Mapping-Consistent Image Enhancement (MCIE)* module. The comparison result shows that MonoPCC is superior to other SOTAs in the presence of unexpected car lights.
 
-| `Methods`          | Abs Rel $\downarrow$| Sq Rel $\downarrow$| RMSE $\downarrow$| RMSE log $\downarrow$|  $\delta$ < 1.25 $\uparrow$ |
+| `Methods`          | Abs Rel| Sq Rel| RMSE| RMSE log|  $\delta$ < 1.25  |
 |-----------------------|----|----|----|------|--------|
 | [`Monodepth2`](https://github.com/nianticlabs/monodepth2)          | 0.580 |21.446| 12.771 |0.521 |0.552 |
 | [`HR-Depth`](https://github.com/shawLyu/HR-Depth)         | 0.462|  5.660|  11.009|  0.477|  0.374|
