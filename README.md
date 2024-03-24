@@ -60,9 +60,22 @@ CUDA_VISIBLE_DEVICES=0 python evaluate_depth_kitti.py --data_path <kitti_data_pa
     --eval_split eigen --dataset kitti --eval_mono
 ```
 
+## 🌃 Discussions on RobotCar
+
+Besides endoscopic scenarios, brightness inconsistency can also occur in some special cases, e.g., nighttime streets with moving vehicles. Thus, we also evaluate our model on a challenging dataset, i.e., [RobotCar-Night](https://robotcar-dataset.robots.ox.ac.uk/). Based a recent SOTA [RNW](https://github.com/w2kun/RNW), we consier our MonoPCC as a plug-and-play component and insert it into RNW to replace the original *Mapping-Consistent Image Enhancement (MCIE)* module. The comparison result shows that MonoPCC is superior to other SOTAs in the presence of unexpected car lights.
+
+| `Methods`          | Abs Rel| Sq Rel| RMSE| RMSE log|  $\delta$ < 1.25  |
+|-----------------------|----|----|----|------|--------|
+| [`Monodepth2`](https://github.com/nianticlabs/monodepth2)          | 0.580 |21.446| 12.771 |0.521 |0.552 |
+| [`HR-Depth`](https://github.com/shawLyu/HR-Depth)         | 0.462|  5.660|  11.009|  0.477|  0.374|
+| [`ADFA`](https://github.com/madhubabuv/NightDepthADFA)  | 0.233 |3.783 |10.089 |0.319 |0.668 |
+| [`RNW`](https://github.com/w2kun/RNW)  | 0.185 |1.894 |7.319 |0.246 |0.735 |
+| `MonoPCC(Ours)`         | **0.178** |**1.803**| **7.025**| **0.241**| **0.744**|
+
+
 ## ⏳ To do
 
-Currently, we have released the evaluation code and model weight files of MonoPCC, which can reproduce the result in our work. In the near future, we will continue to update the complete training code and model zoo. Also, we plan to evaluate our model on more challenging datasets, e.g., [nuScenes-Night](https://github.com/nutonomy/nuscenes-devkit).
+Currently, we have released the evaluation code and model weight files of MonoPCC, which can reproduce the result in our work. In the near future, we will continue to update the complete training code and model zoo. 
 
 ## Acknowledgement
 Thanks the authors for their works:
@@ -70,3 +83,5 @@ Thanks the authors for their works:
 [MonoViT](https://github.com/zxcqlf/monovit)
 
 [AF-SfMLearner](https://github.com/ShuweiShao/AF-SfMLearner)
+
+[RNW](https://github.com/w2kun/RNW)
