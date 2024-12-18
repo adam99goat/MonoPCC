@@ -20,7 +20,7 @@ The datasets in our experimental results are [SCARED](https://endovissub2019-sca
 
 **SCARED split**
 
-The train/test split for SCARED in our works is defined in the `splits/endovis` and further preprocessing is available in [AF-SfMLearner](https://github.com/ShuweiShao/AF-SfMLearner).
+The training/test split for SCARED in our works is defined in the `splits/endovis` and further preprocessing is available in [AF-SfMLearner](https://github.com/ShuweiShao/AF-SfMLearner).
 
 
 ## 📊 Evaluation on SCARED
@@ -31,6 +31,42 @@ To evaluate model performance on SCARED, you need to run the following command:
 ```shell
 CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --data_path <your_data_path> --load_weights_folder <your_weight_path> \
     --eval_split endovis --dataset endovis  --max_depth 150 --png --eval_mono
+```
+
+After that, you can acquire the below evaluation results (the model files and prediction results of SOTAs are also provided [here](https://drive.google.com/drive/folders/1Z75I9xL5BKymm-nMdkKOrJzi3pdT3nde?usp=sharing) for statistical analysis, e.g., [T-test](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_rel.html)): 
+
+| `Methods`          | Abs Rel| Sq Rel| RMSE| RMSE log|  $\delta$ < 1.25  |
+|-----------------------|----|----|----|------|--------|
+| [`Monodepth2`]()          | 0.060    | 0.432   | 4.885 | 0.082     | 0.972      |
+| [`FeatDepth`]()   | 0.055    | 0.392   | 4.702 | 0.077     | 0.976      |
+| [`HR-Depth`]()         | 0.058    | 0.439   | 4.886 | 0.081     | 0.969      |
+| [`DIFFNet`]()  | 0.057    | 0.423   | 4.812 | 0.079     | 0.975      |
+| [`Endo-SfMLearner`]() | 0.057    | 0.414   | 4.756 | 0.078     | 0.976      |
+| [`AF-SfMLearner`]()   | 0.055    | 0.384   | 4.585 | 0.075     | 0.979      |
+| [`MonoViT`]()         | 0.057    | 0.416   | 4.919 | 0.079     | 0.977      |
+| [`Lite-Mono`]()         | 0.056     | 0.398  | 4.614  | 0.077    | 0.974    |
+| [`MonoPCC(Ours)`]()         | **0.051** |**0.349**| **4.488**| **0.072**| **0.983**|
+
+Note that, since our training split is slightly different from [AF-SfMLearner](https://github.com/ShuweiShao/AF-SfMLearner), we supplement the comparison results using the same training setting [here](./evaluation_results/AF_training_split/).
+
+
+## 🔌 Plug and Play
+
+As a plug-and-play design, PCC can theoretically be embedded into any backbone network. In addition to the previously used [MonoViT](https://arxiv.org/abs/2208.03543), we extend the PCC strategy to the more recent methods, e.g., [EndoDAC](https://arxiv.org/abs/2405.08672), achieving the following result:
+
+| `Methods`          | Abs Rel| Sq Rel| RMSE| RMSE log|  $\delta$ < 1.25  |
+|-----------------------|----|----|----|------|--------|
+| [`EndoDAC`]()         | 0.051    | 0.341   | 4.347 | 0.072     | **0.981**      |
+| [`EndoDAC+PCC`](https://drive.google.com/drive/folders/1NDMVER9BBkP0BW-KkNLV9jgXojeFgYXG?usp=sharing)         | **0.049** |**0.334**| **4.322**| **0.070**| **0.981**|
+
+
+## ➰ Pose estimation
+
+We also evaluate the performance of pose estimation. Before that, please please follow [AF-SfMLearner](https://github.com/ShuweiShao/AF-SfMLearner/blob/main/export_gt_pose.py) and prepare the ground truth. 
+
+Using the [PoseNet models](https://drive.google.com/drive/folders/13A9TZDETPgEm3D-c37YsGHn8OZcd-VMh?usp=sharing), you can run the below command to acquire the results of pose estimation on two trajectories:
+```shell
+CUDA_VISIBLE_DEVICES=0 python evaluate_pose.py --data_path <your_data_path> --load_weights_folder <your_weight_path> 
 ```
 
 
@@ -64,7 +100,7 @@ CUDA_VISIBLE_DEVICES=0 python evaluate_depth_kitti.py --data_path <kitti_data_pa
 
 ## ⏳ To do
 
-Currently, we have released the evaluation code and model weight files of MonoPCC, which can reproduce the result in our work. In the near future, we will continue to update the complete training code and model zoo. 
+Currently, we have released the evaluation code and model weight files of MonoPCC, which can reproduce the result in our work. In the near future, we will continue to update the complete training code. 
 
 ## Acknowledgement
 Thanks the authors for their works:
@@ -72,3 +108,5 @@ Thanks the authors for their works:
 [MonoViT](https://github.com/zxcqlf/monovit)
 
 [AF-SfMLearner](https://github.com/ShuweiShao/AF-SfMLearner)
+
+[EndoDAC](https://github.com/BeileiCui/EndoDAC)
