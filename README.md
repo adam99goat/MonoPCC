@@ -37,15 +37,15 @@ After that, you can acquire the below evaluation results (the model files and pr
 
 | `Methods`          | Abs Rel| Sq Rel| RMSE| RMSE log|  $\delta$ < 1.25  |
 |-----------------------|----|----|----|------|--------|
-| [`Monodepth2`]()          | 0.060    | 0.432   | 4.885 | 0.082     | 0.972      |
-| [`FeatDepth`]()   | 0.055    | 0.392   | 4.702 | 0.077     | 0.976      |
-| [`HR-Depth`]()         | 0.058    | 0.439   | 4.886 | 0.081     | 0.969      |
-| [`DIFFNet`]()  | 0.057    | 0.423   | 4.812 | 0.079     | 0.975      |
-| [`Endo-SfMLearner`]() | 0.057    | 0.414   | 4.756 | 0.078     | 0.976      |
-| [`AF-SfMLearner`]()   | 0.055    | 0.384   | 4.585 | 0.075     | 0.979      |
-| [`MonoViT`]()         | 0.057    | 0.416   | 4.919 | 0.079     | 0.977      |
-| [`Lite-Mono`]()         | 0.056     | 0.398  | 4.614  | 0.077    | 0.974    |
-| [`MonoPCC(Ours)`]()         | **0.051** |**0.349**| **4.488**| **0.072**| **0.983**|
+| `Monodepth2`          | 0.060    | 0.432   | 4.885 | 0.082     | 0.972      |
+| `FeatDepth`   | 0.055    | 0.392   | 4.702 | 0.077     | 0.976      |
+| `HR-Depth`         | 0.058    | 0.439   | 4.886 | 0.081     | 0.969      |
+| `DIFFNet`  | 0.057    | 0.423   | 4.812 | 0.079     | 0.975      |
+| `Endo-SfMLearner` | 0.057    | 0.414   | 4.756 | 0.078     | 0.976      |
+| `AF-SfMLearner`   | 0.055    | 0.384   | 4.585 | 0.075     | 0.979      |
+| `MonoViT`        | 0.057    | 0.416   | 4.919 | 0.079     | 0.977      |
+| `Lite-Mono`        | 0.056     | 0.398  | 4.614  | 0.077    | 0.974    |
+| `MonoPCC(Ours)`         | **0.051** |**0.349**| **4.488**| **0.072**| **0.983**|
 
 Note that, since our training split is slightly different from [AF-SfMLearner](https://github.com/ShuweiShao/AF-SfMLearner), we supplement the comparison results using the same training setting [here](./evaluation_results/AF_training_split/).
 
@@ -56,7 +56,7 @@ As a plug-and-play design, PCC can theoretically be embedded into any backbone n
 
 | `Methods`          | Abs Rel| Sq Rel| RMSE| RMSE log|  $\delta$ < 1.25  |
 |-----------------------|----|----|----|------|--------|
-| [`EndoDAC`]()         | 0.051    | 0.341   | 4.347 | 0.072     | **0.981**      |
+| `EndoDAC`         | 0.051    | 0.341   | 4.347 | 0.072     | **0.981**      |
 | [`EndoDAC+PCC`](https://drive.google.com/drive/folders/1NDMVER9BBkP0BW-KkNLV9jgXojeFgYXG?usp=sharing)         | **0.049** |**0.334**| **4.322**| **0.070**| **0.981**|
 
 
