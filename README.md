@@ -47,7 +47,7 @@ After that, you can acquire the below evaluation results (the model files and pr
 | `Lite-Mono`        | 0.056     | 0.398  | 4.614  | 0.077    | 0.974    |
 | `MonoPCC(Ours)`         | **0.051** |**0.349**| **4.488**| **0.072**| **0.983**|
 
-Note that, since our training split is slightly different from [AF-SfMLearner](https://github.com/ShuweiShao/AF-SfMLearner), we supplement the comparison results using their training setting [here](./evaluation_results/AF_training_split/).
+📌📌 **Note that**, since our training split is slightly different from [AF-SfMLearner](https://github.com/ShuweiShao/AF-SfMLearner), we supplement the comparison results using their training setting [here](./evaluation_results/AF_training_split/).
 
 
 ## 🔌 Plug and Play
