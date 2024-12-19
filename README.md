@@ -47,12 +47,12 @@ After that, you can acquire the below evaluation results (the model files and pr
 | `Lite-Mono`        | 0.056     | 0.398  | 4.614  | 0.077    | 0.974    |
 | `MonoPCC(Ours)`         | **0.051** |**0.349**| **4.488**| **0.072**| **0.983**|
 
-Note that, since our training split is slightly different from [AF-SfMLearner](https://github.com/ShuweiShao/AF-SfMLearner), we supplement the comparison results using the same training setting [here](./evaluation_results/AF_training_split/).
+Note that, since our training split is slightly different from [AF-SfMLearner](https://github.com/ShuweiShao/AF-SfMLearner), we supplement the comparison results using their training setting [here](./evaluation_results/AF_training_split/).
 
 
 ## 🔌 Plug and Play
 
-As a plug-and-play design, PCC can theoretically be embedded into any backbone network. In addition to the previously used [MonoViT](https://arxiv.org/abs/2208.03543), we extend the PCC strategy to the more recent methods, e.g., [EndoDAC](https://arxiv.org/abs/2405.08672), achieving the following result:
+As a plug-and-play design, PCC can theoretically be embedded into any backbone network. In addition to the previously used [MonoViT](https://arxiv.org/abs/2208.03543), we extend the PCC strategy to the more recent methods, e.g., [EndoDAC](https://arxiv.org/abs/2405.08672), achieving the following results:
 
 | `Methods`          | Abs Rel| Sq Rel| RMSE| RMSE log|  $\delta$ < 1.25  |
 |-----------------------|----|----|----|------|--------|
@@ -69,6 +69,9 @@ Using the [PoseNet models](https://drive.google.com/drive/folders/13A9TZDETPgEm3
 CUDA_VISIBLE_DEVICES=0 python evaluate_pose.py --data_path <your_data_path> --load_weights_folder <your_weight_path> 
 ```
 
+### Visual trajectory
+
+![image](assets/pose.jpg)
 
 ## 🎞️ Demo of 3D reconstruction
 
