@@ -22,6 +22,20 @@ The datasets in our experimental results are [SCARED](https://endovissub2019-sca
 
 The training/test split for SCARED in our works is defined in the `splits/endovis` and further preprocessing is available in [AF-SfMLearner](https://github.com/ShuweiShao/AF-SfMLearner).
 
+## 🏋️ Training on SCARED
+
+Initialize the follow-up training with a checkpoint obtained from the warm-up phase. The checkpoint directory should contain `encoder.pth`, `depth.pth`, `pose_encoder.pth`, and `pose.pth`. Run:
+
+```shell
+CUDA_VISIBLE_DEVICES=0 python train_monopcc.py \
+    --data_path <your_data_path> \
+    --log_dir log \
+    --model_name monopcc \
+    --num_epochs 10 \
+    --png \
+    --load_weights_folder <your_warmup_weight_path>
+```
+
 
 ## 📊 Evaluation on SCARED
 
@@ -100,10 +114,6 @@ CUDA_VISIBLE_DEVICES=0 python evaluate_depth_kitti.py --data_path <kitti_data_pa
 ```
 
 
-
-## ⏳ To do
-
-Currently, we have released the evaluation code and model weight files of MonoPCC, which can reproduce the result in our work. In the near future, we will continue to update the complete training code. 
 
 ## Acknowledgement
 Thanks the authors for their works:
